@@ -5,7 +5,6 @@ const multer = require('multer')
 // get port from dotenv
 
 const PORT = process.env.PORT || 3001;
-const DOMAINPORT = 'https://a4z.herokuapp.com:' + PORT;
 const DOMAIN = 'https://a4z.herokuapp.com';
 
 app.use(express.static('public'));
@@ -65,7 +64,7 @@ app.get('/file/:id', async (req, res) => {
 
 app.post('/upload', upload.single('uploaded_file'), function (req, res) {
     console.log(req.file, req.body)
-    res.sendStatus(DOMAIN + "/" + req.file.originalname);
+    res.send(DOMAIN + "/" + req.file.originalname);
 });
 
 
