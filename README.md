@@ -1,6 +1,6 @@
 # idk
 
-🏆 A little discord preview "cdn" I made 🏆
+🏆 A little Discord preview "cdn" I made 🏆
 
 📌 Uses OpenGraph and Twitter meta tags to make the preview
 📌 Uses Multer to do upload files
