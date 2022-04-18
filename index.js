@@ -5,7 +5,8 @@ const multer = require('multer')
 // get port from dotenv
 
 const PORT = process.env.PORT || 3001;
-const DOMAIN = 'https://a4z.herokuapp.com:' + PORT;
+const DOMAINPORT = 'https://a4z.herokuapp.com:' + PORT;
+const DOMAIN = 'https://a4z.herokuapp.com';
 
 app.use(express.static('public'));
 
@@ -53,7 +54,7 @@ app.get('/:id', async (req, res) => {
         <meta property="twitter:image" content="${imageUrl}">
     </head>
     <body>
-        
+        <image src="${imageUrl}" alt="${title}">
     </body>
     </html>
     `)
