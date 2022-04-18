@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const multer = require('multer')
 
-const DOMAIN = 'http://localhost:3001';
+// get port from dotenv
+
+const PORT = process.env.PORT || 3001;
+const DOMAIN = 'https://a4z.herokuapp.com:' + PORT;
 
 app.use(express.static('public'));
 
@@ -67,4 +70,4 @@ app.post('/upload', upload.single('uploaded_file'), function (req, res) {
 
 
 
-app.listen(3001, () => console.log(`Running on ${DOMAIN}`));
+app.listen(PORT, () => console.log(`Running on ${DOMAIN}`));
