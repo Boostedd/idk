@@ -12,11 +12,10 @@ app.use(express.static('public'));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '/tmp/my-uploads')
+        cb(null, './cdn/images')
     },
     filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix)
+        cb(null, file.originalname)
     }
 })
 
@@ -66,7 +65,7 @@ app.get('/file/:id', async (req, res) => {
 
 app.post('/upload', upload.single('uploaded_file'), function (req, res) {
     console.log(req.file, req.body)
-    res.sendStatus(200);
+    res.sendStatus(DOMAIN + "/" + req.file.originalname);
 });
 
 
